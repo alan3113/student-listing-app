@@ -1,0 +1,161 @@
+.card-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 400px;
+  padding: 24px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  height: 520px;
+}
+
+mat-label {
+  color: #333;
+}
+mat-form-field {
+  margin: 8px 0;
+  /* height: 36px; */
+}
+mat-form-field .mat-form-field-wrapper {
+  padding: 0;
+}
+.card-header {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+mat-card-title {
+  font-family: "Merienda";
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: xx-large;
+}
+mat-card-title {
+  font-family: "Merienda";
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: xx-large;
+}
+.subtitle {
+  font-size: x-large;
+  color: gray;
+  margin-top: 4px;
+  font-weight: 900px;  
+  width: 100%;
+  padding-bottom: 25px;
+}
+mat-card-content {
+  margin: 20px 5px;
+}
+mat-form-field button[mat-icon-button] {
+  background: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+mat-form-field button[mat-icon-button] mat-icon {
+  color: #666;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-form-field button[mat-icon-button]:hover {
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-bottom: 16px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.login-card-footer {
+  padding: 3px;
+  color: #333;
+}
+
+.login-chipset {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.button-set {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.submit-btn {
+  background-color: #2c3e9a;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: larger;
+  margin-bottom: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #2c3e9a;
+}
+.back-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid gray; /* Added a thin border */
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: larger;
+  margin-bottom: 15px;
+}
+
+.back-btn:hover {
+  background-color: #8a8a8a;
+}
+
+.signup-link {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 10px;
+  color: #333;
+}
+
+mat-error {
+  font-size: 0.875rem;
+  color: #f44336;
+}
+
+.rows {
+  display: flex;
+  gap: 10px;
+}
+
+.rows mat-form-field {
+  flex: 1;
+  width: 5px;
+}

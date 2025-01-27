@@ -1,0 +1,144 @@
+:host {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+}
+.container {
+  display: flex;
+  width: 100%;
+}
+.left-container {
+  height: 100%;
+  flex: 1.5 ;
+  background-image: url("/Serene Study Session.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.right-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.card {
+  max-width: 360px;
+  padding: 24px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+mat-label {
+  color: #333;
+}
+mat-form-field {
+  margin: 8px 0;
+}
+mat-card-header {
+  align-self: center;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+mat-card-title {
+  font-family: "Merienda";
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: xx-large;
+}
+.subtitle {
+  font-size: 20px;
+  color: gray;
+  margin-top: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+mat-card-content {
+  margin: 20px 5px;
+}
+mat-form-field button[mat-icon-button] {
+  background: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+mat-form-field button[mat-icon-button] mat-icon {
+  color: #666;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-form-field button[mat-icon-button]:hover {
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-bottom: 16px;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.login-card-footer {
+  padding: 3px;
+  color: #333;
+}
+
+.login-chipset {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 2px;
+  padding: 8px 16px;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  font-size: larger;
+  margin-bottom: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #2c3e9a;
+}
+
+.signup-link {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 10px;
+  color: #333;
+}
+
+mat-error {
+  font-size: 0.875rem;
+  color: #f44336;
+}
+.forgot-password {
+  margin-top: 8px;
+  display: block;
+}

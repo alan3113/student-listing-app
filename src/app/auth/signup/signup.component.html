@@ -1,0 +1,166 @@
+<div class="card-container">
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="accountForm" class="stepper">
+      <ng-template matStepLabel>Create Account</ng-template>
+      <app-form
+        title="Hai"
+        subtitle="Create your Account"
+        [formGroup]="accountForm"
+        submitButtonText="Continue"
+        linkText="Already have an Account? "
+        (submitEvent)="handleSubmit($event)"
+        linkRoute="/login"
+        nextRouteName="Login"
+      ></app-form>
+    </mat-step>
+
+    <!-- Step 2 -->
+    <mat-step
+      [stepControl]="registrationForm"
+      errorMessage="Fill required fields"
+    >
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <div class="card">
+        <mat-card-header class="card-header">
+          <mat-card-title>Personal Details</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="registrationForm" class="form">
+          <mat-card-content>
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Full Name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="name"
+                placeholder="Enter your full name"
+                required
+              />
+              @if (registrationForm.get('name')?.invalid &&
+              (registrationForm.get('name')?.dirty ||
+              registrationForm.get('name')?.touched)) {
+              <mat-error>
+                {{ commonErrorMessage() }}
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <div class="rows">
+              <mat-form-field appearance="outline">
+                <mat-label>Age</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  formControlName="age"
+                  placeholder="Enter your age"
+                  required
+                />
+                @if (registrationForm.get('age')?.invalid &&
+                (registrationForm.get('age')?.dirty ||
+                registrationForm.get('age')?.touched)) {
+                <mat-error>
+                  {{ commonErrorMessage() }}
+                </mat-error>
+                }
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Grade</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  formControlName="grade"
+                  placeholder="Enter your class"
+                  required
+                />
+              </mat-form-field>
+            </div>
+
+            <div formGroupName="subjects">
+              <div class="rows">
+                <mat-form-field appearance="outline">
+                  <mat-label>Subject 1 Mark</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="subject1"
+                    placeholder="Enter mark"
+                    required
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Subject 2 Mark</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="subject2"
+                    placeholder="Enter mark"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="rows">
+                <mat-form-field appearance="outline">
+                  <mat-label>Subject 3 Mark</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="subject3"
+                    placeholder="Enter mark"
+                    required
+                  />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Subject 4 Mark</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="subject4"
+                    placeholder="Enter mark"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions class="button-set">
+            <button mat-button matStepperPrevious class="back-btn">Back</button>
+            <button
+              mat-button
+              matStepperNext
+              class="submit-btn"
+              mat-raised-button
+              color="primary"
+              [disabled]="registrationForm.invalid"
+            >
+              Next
+            </button>
+          </mat-card-actions>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step class="stepper">
+      <ng-template matStepLabel>Registration Completed</ng-template>
+      <div class="card">
+        <span class="subtitle">Added new Student successfully</span>
+
+        <mat-card-actions class="button-set">
+          <button mat-button matStepperPrevious class="back-btn">Back</button>
+          <button
+            mat-button
+            class="submit-btn"
+            mat-raised-button
+            color="primary"
+            (click)="onFinalSubmit()"
+          >
+            Complete
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

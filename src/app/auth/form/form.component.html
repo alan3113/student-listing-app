@@ -1,0 +1,67 @@
+<div class="card">
+    <mat-card-header class="card-header">
+      <mat-card-title>{{title}}</mat-card-title>
+      <span class="subtitle">{{subtitle}}</span>
+    </mat-card-header>
+
+    <form [formGroup]="loginForm" class="form">
+      <mat-card-content>
+        <mat-label>Username</mat-label>
+        <mat-form-field appearance="outline" class="form-field">
+          <input
+            type="email"
+            matInput
+            placeholder="Enter Username"
+            formControlName="username"
+            required
+          />
+          @if (loginForm.get('username')?.invalid &&
+          (loginForm.get('username')?.dirty ||
+          loginForm.get('username')?.touched)) {
+
+          <mat-error>
+            {{ usernameErrorMessage() }}
+          </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-label>Password</mat-label>
+        <mat-form-field appearance="outline" class="form-field">
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            matInput
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+          @if (loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.dirty ||
+          loginForm.get('password')?.touched)) {
+          <mat-error>
+            {{ passwordErrorMessage() }}
+          </mat-error>
+          }
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="togglePasswordVisibility()"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-footer class="login-card-footer">
+        <div class="login-chipset">
+          <button mat-flat-button class="submit-btn" (click)="onSubmit()">
+            {{ submitButtonText }}
+          </button>
+        </div>
+        <a [routerLink]="linkRoute" class="signup-link"
+          >{{ linkText }} <b>{{ nextRouteName }}</b></a
+        >
+      </mat-card-footer>
+    </form>
+  </div>
