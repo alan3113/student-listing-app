@@ -4,19 +4,22 @@
   padding: 20px;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
 }
 
 .card {
   width: 400px;
   padding: 24px;
   border: none;
-  background-color: transparent;
+  background-color: transparent !important;
   display: flex;
   flex-direction: column;
   color: #333;
   height: 520px;
 }
-
+.mat-horizontal-content-container {
+  background-color: transparent;
+}
 mat-label {
   color: #333;
 }

@@ -8,8 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
+import { Student } from '../../../model/student-list.model';
+import { StudentListService } from '../../../services/student-list.services';
 
 @Component({
   selector: 'app-signup',
@@ -35,14 +37,20 @@ export class SignupComponent implements OnInit {
   registrationForm!: FormGroup;
   currentStep = 1;
   hidePassword = true;
+  studentId:string|null=null
+  student?:Student
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private route:ActivatedRoute,private studentService:StudentListService) { }
 
   ngOnInit() {
     this.initForm();
   }
 
   initForm() {
+    this.route.paramMap.subscribe(params => {
+      this.studentId= params.get('id');}
+    )
+    if(!this.studentId){
     this.accountForm = this.fb.group({
       // Add your account form controls here
       username: ['', [Validators.required]],
@@ -60,6 +68,27 @@ export class SignupComponent implements OnInit {
         subject4: ['', [Validators.required, Validators.min(0)]]
       })
     });
+  }
+  else{
+    this.student=this.studentService.getStudentById(Number(this.studentId))
+    this.accountForm = this.fb.group({
+      // Add your account form controls here
+      username: [this.student?.username, [Validators.required]],
+      password: [this.student?.password, Validators.required]
+    });
+
+    this.registrationForm = this.fb.group({
+      name: [this.student?.name, Validators.required],
+      age: [this.student?.age, [Validators.required, Validators.min(0)]],
+      grade: [this.student?.class, [Validators.required, Validators.min(0)]],
+      subjects: this.fb.group({
+        subject1: [this.student?.marks.english, [Validators.required, Validators.min(0)]],
+        subject2: [this.student?.marks.math, [Validators.required, Validators.min(0)]],
+        subject3: [this.student?.marks.science, [Validators.required, Validators.min(0)]],
+        subject4: ['', [Validators.required, Validators.min(0)]]
+      })
+    });
+  }
   }
 
   togglePasswordVisibility() {
@@ -111,7 +140,7 @@ export class SignupComponent implements OnInit {
   handleSubmit(form: FormGroup) {
     if (form.valid) {
       console.log(form.value);
-      this.currentStep = 2;
+      this.stepper.next();
     }
   }
   onFinalSubmit() {

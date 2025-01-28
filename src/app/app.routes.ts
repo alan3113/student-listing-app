@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { SignupComponent } from './auth/signup/signup.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './auth/login/login.component';
-import { StudentListingComponent } from './student-listing/student-listing.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { StudentListingComponent } from './components/student-listing/student-listing.component';
 
 export const routes: Routes = [
     {
@@ -26,7 +26,7 @@ export const routes: Routes = [
     },
     {
 
-        path: 'add-student',
+        path: 'add-student/:id',
         component: SignupComponent
     },
     {

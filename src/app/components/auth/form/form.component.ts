@@ -20,22 +20,30 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './form.component.css'
 })
 export class FormLoginComponent {
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
   hidePassword: boolean = true;
   @Input() title: string = "Welcome Back!";
   @Input() subtitle: string = "Login to continue";
   @Input() submitButtonText: string = 'Login';
   @Input() linkText: string = 'Don\'t have an account? ';
   @Input() linkRoute: string = '/signup';
-  @Input() nextRouteName: string = "Signup"
+  @Input() nextRouteName: string = "Signup";
+  @Input() username: string = "";
+  @Input() password: string = "";
   @Output() submitEvent = new EventEmitter<FormGroup>();
 
 
   constructor(private router: Router, private fb: FormBuilder) {
+
+  }
+  ngOnInit() {
+    this.initForm();
+  }
+  initForm() {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      username: [this.username, Validators.required],
       password: [
-        '',
+        this.password,
         [
           Validators.required,
           Validators.minLength(8),

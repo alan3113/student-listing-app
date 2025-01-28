@@ -11,6 +11,8 @@
         (submitEvent)="handleSubmit($event)"
         linkRoute="/login"
         nextRouteName="Login"
+        username={{student?.username}}
+        password={{student?.password}}
       ></app-form>
     </mat-step>
 

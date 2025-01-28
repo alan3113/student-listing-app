@@ -152,6 +152,9 @@ export class StudentListService {
     getStudent(): Student[] {
         return this.studentData;
     }
+    getStudentById(id: number): Student | undefined {
+        return this.studentData.find(student => student.id === id);
+      }
 
 
 }

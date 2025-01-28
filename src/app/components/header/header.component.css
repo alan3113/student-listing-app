@@ -20,14 +20,11 @@
   border-bottom: 0.1cap solid #09032e;
   width: 100%;
   background-color: #ffffff;
+
  
 }
 
-.logo {
-  width: 60px;
-  height: auto;
-  transition: transform 0.3s ease;
-}
+
 
 mat-toolbar {
   background-color: #ffffff;
